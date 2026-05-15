@@ -2,7 +2,9 @@ package com.sixcar.repository;
 
 import com.sixcar.model.Brand;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,28 +14,29 @@ public class BrandRepository {
 
         List<Brand> brands = new ArrayList<>();
 
-        String sql = "SELECT * FROM brands";
+        String sql = """
+                SELECT id, name, country, founded_year, logo_url
+                FROM brands
+                """;
 
-        try (
-                Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(sql);
-                ResultSet resultSet = statement.executeQuery()
-        ) {
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
 
-            while (resultSet.next()) {
+            while (rs.next()) {
 
                 Brand brand = new Brand();
 
-                brand.setId(resultSet.getInt("id"));
-                brand.setName(resultSet.getString("name"));
-                brand.setCountry(resultSet.getString("country"));
-                brand.setFoundedYear(resultSet.getInt("founded_year"));
-                brand.setLogoUrl(resultSet.getString("logo_url"));
+                brand.setId(rs.getInt("id"));
+                brand.setName(rs.getString("name"));
+                brand.setCountry(rs.getString("country"));
+                brand.setFoundedYear(rs.getInt("founded_year"));
+                brand.setLogoUrl(rs.getString("logo_url"));
 
                 brands.add(brand);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
