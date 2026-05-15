@@ -1,4 +1,4 @@
-# 6Car - Aplicación web de gestión de coches
+# 6CAR - Aplicación web de gestión de coches
 
 6Car es una aplicación web desarrollada en Java utilizando Servlets, JSP y MariaDB. El objetivo del proyecto es simular un sistema básico de gestión de coches de alquiler, permitiendo administrar coches y marcas con operaciones completas de creación, lectura, actualización y eliminación.
 
