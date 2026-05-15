@@ -10,7 +10,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>6Car</title>
+    <title>Cars - 6Car</title>
 
     <!-- Bootstrap -->
 
@@ -26,9 +26,7 @@
 <body>
 
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -57,7 +55,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link"
+                    <a class="nav-link active"
                        href="cars.jsp">
 
                         Cars
@@ -97,51 +95,35 @@
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero text-center">
-
-    <div class="container">
-
-        <h1 class="display-4">
-
-            6Car
-
-        </h1>
-
-        <p class="lead">
-
-            Buy and rent cars easily
-
-        </p>
-
-        <a href="cars.jsp"
-           class="btn btn-light">
-
-            Explore Cars
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FEATURED CARS
-========================= -->
+<!-- CARS SECTION -->
 
 <section class="cars-section">
 
     <div class="container">
 
-        <h2 class="text-center mb-5">
+        <h1 class="text-center mb-5">
 
-            Featured Cars
+            Available Cars
 
-        </h2>
+        </h1>
+
+
+        <!-- SEARCH -->
+
+        <div class="row justify-content-center mb-5">
+
+            <div class="col-md-6">
+
+                <input type="text"
+                       class="form-control"
+                       placeholder="Search car...">
+
+            </div>
+
+        </div>
+
+
+        <!-- CARDS -->
 
         <div class="row g-4">
 
@@ -169,6 +151,18 @@
                             Automatic • 2024
 
                         </p>
+
+                        <p>
+
+                            250€/day
+
+                        </p>
+
+                        <button class="btn btn-outline-light">
+
+                            Details
+
+                        </button>
 
                     </div>
 
@@ -201,6 +195,18 @@
 
                         </p>
 
+                        <p>
+
+                            320€/day
+
+                        </p>
+
+                        <button class="btn btn-outline-light">
+
+                            Details
+
+                        </button>
+
                     </div>
 
                 </div>
@@ -232,6 +238,18 @@
 
                         </p>
 
+                        <p>
+
+                            400€/day
+
+                        </p>
+
+                        <button class="btn btn-outline-light">
+
+                            Details
+
+                        </button>
+
                     </div>
 
                 </div>
@@ -245,9 +263,7 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer class="bg-dark text-center text-white p-4 mt-5">
 
