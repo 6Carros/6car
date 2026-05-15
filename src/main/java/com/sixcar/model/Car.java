@@ -3,59 +3,49 @@ package com.sixcar.model;
 public class Car {
 
     private int id;
-    private String brand;
+    private int brandId;
     private String model;
     private int year;
-    private double price;
+    private String color;
+    private double pricePerDay;
+    private boolean available;
+    private String imageUrl;
 
-    public Car() {
-    }
+    public Car() {}
 
-    public Car(int id, String brand, String model, int year, double price) {
+    public Car(int id, int brandId, String model, int year, String color,
+               double pricePerDay, boolean available, String imageUrl) {
         this.id = id;
-        this.brand = brand;
+        this.brandId = brandId;
         this.model = model;
         this.year = year;
-        this.price = price;
+        this.color = color;
+        this.pricePerDay = pricePerDay;
+        this.available = available;
+        this.imageUrl = imageUrl;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getBrandId() { return brandId; }
+    public void setBrandId(int brandId) { this.brandId = brandId; }
 
-    public String getBrand() {
-        return brand;
-    }
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
 
-    public String getModel() {
-        return model;
-    }
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
+    public double getPricePerDay() { return pricePerDay; }
+    public void setPricePerDay(double pricePerDay) { this.pricePerDay = pricePerDay; }
 
-    public int getYear() {
-        return year;
-    }
+    public boolean isAvailable() { return available; }
+    public void setAvailable(boolean available) { this.available = available; }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
