@@ -15,8 +15,18 @@ public class CarRepository {
         List<Car> cars = new ArrayList<>();
 
         String sql = """
-                SELECT id, brand_id, model, year, color, price_per_day, available, image_url
-                FROM cars
+                SELECT 
+                    c.id,
+                    c.brand_id,
+                    c.model,
+                    c.year,
+                    c.color,
+                    c.price_per_day,
+                    c.available,
+                    c.image_url,
+                    b.name AS brand_name
+                FROM cars c
+                JOIN brands b ON c.brand_id = b.id
                 """;
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -26,8 +36,10 @@ public class CarRepository {
             while (rs.next()) {
 
                 Car car = new Car();
+
                 car.setId(rs.getInt("id"));
                 car.setBrandId(rs.getInt("brand_id"));
+                car.setBrandName(rs.getString("brand_name")); // ✔ NUEVO
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
                 car.setColor(rs.getString("color"));
@@ -48,9 +60,19 @@ public class CarRepository {
     public Car findById(int id) {
 
         String sql = """
-                SELECT id, brand_id, model, year, color, price_per_day, available, image_url
-                FROM cars
-                WHERE id = ?
+                SELECT 
+                    c.id,
+                    c.brand_id,
+                    c.model,
+                    c.year,
+                    c.color,
+                    c.price_per_day,
+                    c.available,
+                    c.image_url,
+                    b.name AS brand_name
+                FROM cars c
+                JOIN brands b ON c.brand_id = b.id
+                WHERE c.id = ?
                 """;
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -61,10 +83,12 @@ public class CarRepository {
             try (ResultSet rs = stmt.executeQuery()) {
 
                 if (rs.next()) {
+
                     Car car = new Car();
 
                     car.setId(rs.getInt("id"));
                     car.setBrandId(rs.getInt("brand_id"));
+                    car.setBrandName(rs.getString("brand_name")); // ✔ NUEVO
                     car.setModel(rs.getString("model"));
                     car.setYear(rs.getInt("year"));
                     car.setColor(rs.getString("color"));
