@@ -54,6 +54,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="brands">
+                        Brands
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         Login
                     </a>
@@ -82,7 +88,7 @@
             Available Cars
         </h1>
 
-        <!-- SEARCH (visual de momento) -->
+        <!-- SEARCH (solo visual por ahora) -->
         <div class="row justify-content-center mb-5">
 
             <div class="col-md-6">
@@ -99,7 +105,7 @@
         <div class="row g-4">
 
             <%
-                if (cars != null) {
+                if (cars != null && !cars.isEmpty()) {
                     for (Car car : cars) {
             %>
 
@@ -126,12 +132,17 @@
                         </p>
 
                         <p class="card-text">
-                            <%= car.getPricePerDay() %> €/day
+                            Price: <%= car.getPricePerDay() %> €/day
                         </p>
 
                         <p class="card-text">
                             Available:
                             <%= car.isAvailable() ? "Yes" : "No" %>
+                        </p>
+
+                        <!-- TEMPORAL: solo debug, luego será brand name -->
+                        <p class="card-text">
+                            Brand ID: <%= car.getBrandId() %>
                         </p>
 
                         <a href="cars?id=<%= car.getId() %>"
@@ -147,6 +158,14 @@
 
             <%
                     }
+                } else {
+            %>
+
+                <div class="col-12 text-center text-muted">
+                    No cars available
+                </div>
+
+            <%
                 }
             %>
 
