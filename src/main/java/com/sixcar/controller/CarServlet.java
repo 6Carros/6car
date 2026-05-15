@@ -21,7 +21,30 @@ public class CarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        String idParam = req.getParameter("id");
+
         try {
+
+            // =========================
+            // DETALLE DE COCHE
+            // =========================
+            if (idParam != null) {
+
+                int id = Integer.parseInt(idParam);
+
+                Car car = carRepository.findById(id);
+
+                req.setAttribute("car", car);
+
+                req.getRequestDispatcher("/car-detail.jsp")
+                        .forward(req, resp);
+
+                return;
+            }
+
+            // =========================
+            // LISTADO DE COCHES
+            // =========================
             List<Car> cars = carRepository.findAll();
 
             req.setAttribute("cars", cars);
@@ -34,7 +57,7 @@ public class CarServlet extends HttpServlet {
             e.printStackTrace();
 
             resp.setContentType("text/plain");
-            resp.getWriter().println("Error loading cars from database");
+            resp.getWriter().println("Error processing cars");
         }
     }
 }
