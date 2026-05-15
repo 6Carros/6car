@@ -20,111 +20,61 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-    <div class="container">
-
-        <a class="navbar-brand" href="index.jsp">6Car</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="cars.jsp">Cars</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</nav>
-
 <!-- ================= HERO ================= -->
-<section class="hero text-center">
+<section class="d-flex align-items-center text-center bg-dark text-white" style="height: 100vh;">
 
     <div class="container">
 
-        <h1 class="display-4">6Car</h1>
+        <h1 class="display-2 mb-3">6Car</h1>
 
-        <p class="lead">Buy and rent cars easily</p>
+        <p class="lead mb-5">
+            Buy and rent cars easily in a modern and simple platform.
+        </p>
 
-        <a href="cars.jsp" class="btn btn-light">Explore Cars</a>
+        <!-- BOTONES -->
+        <div class="d-flex justify-content-center gap-3">
+
+            <a href="cars.jsp" class="btn btn-light btn-lg">
+                Explore Cars
+            </a>
+
+            <a href="brands.jsp" class="btn btn-outline-light btn-lg">
+                Explore Brands
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- ================= FEATURED CARS ================= -->
-<section class="cars-section">
+<!-- ================= ABOUT US ================= -->
+<section class="py-5">
 
-    <div class="container">
+    <div class="container text-center">
 
-        <h2 class="text-center mb-5">Featured Cars</h2>
+        <h2 class="mb-4">About Us</h2>
 
-        <div class="row g-4">
+        <p class="lead">
+            6Car is a platform designed to simplify the process of buying and renting vehicles.
+            We connect users with the best cars and brands in a fast and intuitive way.
+        </p>
 
-            <!-- CAR 1 -->
+        <div class="row mt-5">
+
             <div class="col-md-4">
-
-                <div class="card bg-dark text-white h-100">
-
-                    <img src="images/bmw.jpg" class="card-img-top" alt="BMW">
-
-                    <div class="card-body">
-                        <h5 class="card-title">BMW M4</h5>
-                        <p class="card-text">Automatic • Sport</p>
-                    </div>
-
-                </div>
-
+                <h5>🚗 Cars</h5>
+                <p>Access a full catalog of vehicles available for rent or purchase.</p>
             </div>
 
-            <!-- CAR 2 -->
             <div class="col-md-4">
-
-                <div class="card bg-dark text-white h-100">
-
-                    <img src="images/chevrolet.jpg" class="card-img-top" alt="Chevrolet">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Chevrolet Camaro</h5>
-                        <p class="card-text">Automatic • Muscle</p>
-                    </div>
-
-                </div>
-
+                <h5>🏷️ Brands</h5>
+                <p>Discover the most popular car brands in one place.</p>
             </div>
 
-            <!-- CAR 3 -->
             <div class="col-md-4">
-
-                <div class="card bg-dark text-white h-100">
-
-                    <img src="images/porsche.jpg" class="card-img-top" alt="Porsche">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Porsche 911</h5>
-                        <p class="card-text">Automatic • Luxury</p>
-                    </div>
-
-                </div>
-
+                <h5>⚡ Fast Experience</h5>
+                <p>Simple, clean and fast navigation across the platform.</p>
             </div>
 
         </div>
@@ -133,8 +83,8 @@
 
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-dark text-center text-white p-4 mt-5">
+<!-- ================= FOOTER ================== -->
+<footer class="bg-dark text-center text-white p-4">
 
     <p class="mb-0">2026 - 6Car Project</p>
 
