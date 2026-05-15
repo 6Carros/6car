@@ -18,6 +18,9 @@ public class CarCrudServlet extends HttpServlet {
     private final CarRepository carRepo = new CarRepository();
     private final BrandRepository brandRepo = new BrandRepository();
 
+    // =========================
+    // GET (LIST / DETAIL / NEW / EDIT / DELETE)
+    // =========================
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -26,46 +29,69 @@ public class CarCrudServlet extends HttpServlet {
 
         try {
 
+            // ================= LIST =================
             if (action == null || action.equals("list")) {
+
                 req.setAttribute("cars", carRepo.findAll());
                 req.getRequestDispatcher("/cars.jsp").forward(req, resp);
                 return;
             }
 
+            // ================= DETAIL =================
             if ("detail".equals(action)) {
+
                 int id = Integer.parseInt(req.getParameter("id"));
+
                 req.setAttribute("car", carRepo.findById(id));
+
                 req.getRequestDispatcher("/car-detail.jsp").forward(req, resp);
                 return;
             }
 
+            // ================= NEW =================
             if ("new".equals(action)) {
+
                 req.setAttribute("brands", brandRepo.findAll());
+
                 req.getRequestDispatcher("/car-form.jsp").forward(req, resp);
                 return;
             }
 
+            // ================= EDIT =================
             if ("edit".equals(action)) {
+
                 int id = Integer.parseInt(req.getParameter("id"));
+
                 req.setAttribute("car", carRepo.findById(id));
                 req.setAttribute("brands", brandRepo.findAll());
+
                 req.getRequestDispatcher("/car-form.jsp").forward(req, resp);
                 return;
             }
 
+            // ================= DELETE =================
             if ("delete".equals(action)) {
+
                 int id = Integer.parseInt(req.getParameter("id"));
+
                 carRepo.delete(id);
+
                 resp.sendRedirect("cars-crud?action=list");
                 return;
             }
 
+            // fallback
+            resp.sendRedirect("cars-crud?action=list");
+
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendError(500, "Cars error");
+            resp.sendError(500, "Error processing cars (GET)");
         }
     }
 
+    // =========================
+    // POST (CREATE / UPDATE)
+    // =========================
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -73,11 +99,6 @@ public class CarCrudServlet extends HttpServlet {
         String action = req.getParameter("action");
 
         try {
-
-            if (action == null) {
-                resp.sendRedirect("cars-crud?action=list");
-                return;
-            }
 
             // ================= CREATE =================
             if ("create".equals(action)) {
@@ -118,9 +139,12 @@ public class CarCrudServlet extends HttpServlet {
                 return;
             }
 
+            // fallback
+            resp.sendRedirect("cars-crud?action=list");
+
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendError(500, "Cars POST error");
+            resp.sendError(500, "Error processing cars (POST)");
         }
     }
 }
