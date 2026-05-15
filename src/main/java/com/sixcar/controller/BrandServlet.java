@@ -1,4 +1,4 @@
-package com.sixcar.controller;
+package com.sixcar.servlet;
 
 import com.sixcar.model.Brand;
 import com.sixcar.repository.BrandRepository;
@@ -10,31 +10,44 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/brands")
 public class BrandServlet extends HttpServlet {
 
-    private final BrandRepository brandRepository = new BrandRepository();
+    private final BrandRepository repository = new BrandRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        String idParam = req.getParameter("id");
+
         try {
 
-            List<Brand> brands = brandRepository.findAll();
+            // DETAIL
+            if (idParam != null) {
 
-            req.setAttribute("brands", brands);
+                int id = Integer.parseInt(idParam);
+
+                Brand brand = repository.findById(id);
+
+                req.setAttribute("brand", brand);
+
+                req.getRequestDispatcher("/brand-detail.jsp")
+                        .forward(req, resp);
+
+                return;
+            }
+
+            // LIST
+            req.setAttribute("brands", repository.findAll());
 
             req.getRequestDispatcher("/brands.jsp")
                     .forward(req, resp);
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
-            resp.getWriter().println("Error loading brands");
+            resp.sendError(500, "Error processing brands");
         }
     }
 }

@@ -10,6 +10,9 @@ import java.util.List;
 
 public class BrandRepository {
 
+    // =========================
+    // FIND ALL
+    // =========================
     public List<Brand> findAll() {
 
         List<Brand> brands = new ArrayList<>();
@@ -41,5 +44,44 @@ public class BrandRepository {
         }
 
         return brands;
+    }
+
+    // =========================
+    // FIND BY ID (IMPORTANTE)
+    // =========================
+    public Brand findById(int id) {
+
+        String sql = """
+                SELECT id, name, country, founded_year, logo_url
+                FROM brands
+                WHERE id = ?
+                """;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                if (rs.next()) {
+
+                    Brand brand = new Brand();
+
+                    brand.setId(rs.getInt("id"));
+                    brand.setName(rs.getString("name"));
+                    brand.setCountry(rs.getString("country"));
+                    brand.setFoundedYear(rs.getInt("founded_year"));
+                    brand.setLogoUrl(rs.getString("logo_url"));
+
+                    return brand;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

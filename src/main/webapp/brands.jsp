@@ -17,8 +17,7 @@
     <title>Brands - 6Car</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -32,9 +31,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="index.jsp">
-            6Car
-        </a>
+        <a class="navbar-brand" href="index.jsp">6Car</a>
 
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
@@ -49,15 +46,11 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="cars">
-                        Cars
-                    </a>
+                    <a class="nav-link" href="cars">Cars</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="brands">
-                        Brands
-                    </a>
+                    <a class="nav-link active" href="brands">Brands</a>
                 </li>
 
             </ul>
@@ -73,9 +66,7 @@
 
     <div class="container">
 
-        <h1 class="text-center mb-5">
-            Brands
-        </h1>
+        <h1 class="text-center mb-5">Brands</h1>
 
         <div class="row g-4">
 
@@ -102,7 +93,6 @@
                             Founded: <%= b.getFoundedYear() %>
                         </p>
 
-                        <!-- OPTIONAL: botón detalle -->
                         <a href="brands?id=<%= b.getId() %>"
                            class="btn btn-outline-light btn-sm mt-2">
                             Details
@@ -115,11 +105,11 @@
             </div>
 
             <%
-                    }
-                } else {
+                }
+            } else {
             %>
 
-            <div class="col-12 text-center text-muted">
+            <div class="text-center text-muted">
                 No brands available
             </div>
 
@@ -136,14 +126,9 @@
 <!-- ================= FOOTER ================= -->
 <footer class="bg-dark text-center text-white p-4 mt-5">
 
-    <p class="mb-0">
-        2026 - 6Car Project
-    </p>
+    <p class="mb-0">2026 - 6Car Project</p>
 
 </footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

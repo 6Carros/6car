@@ -33,8 +33,12 @@
 
         <a class="navbar-brand" href="index.jsp">6Car</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -73,10 +77,9 @@
 
             <div class="col-md-4">
 
-                <div class="card bg-dark text-white h-100">
+                <div class="card bg-dark text-white h-100 border-light">
 
-                    <!-- IMAGE -->
-                    <img src="<%= c.getImageUrl() != null ? c.getImageUrl() : "images/default-car.jpg" %>"
+                    <img src="<%= c.getImageUrl() %>"
                          class="card-img-top"
                          alt="<%= c.getModel() %>">
 
@@ -86,23 +89,27 @@
                             <%= c.getModel() %>
                         </h5>
 
-                        <!-- ✔ FIX 1 -->
                         <p class="card-text">
                             Brand: <%= c.getBrandName() %>
                         </p>
 
                         <p class="card-text">
-                            <%= c.getYear() %>
+                            Year: <%= c.getYear() %>
                         </p>
 
-                        <!-- ✔ FIX 2 -->
                         <p class="fw-bold">
                             <%= c.getPricePerDay() %> €/day
                         </p>
 
-                        <button class="btn btn-outline-light btn-sm">
+                        <p class="card-text">
+                            Available:
+                            <%= c.isAvailable() ? "Yes" : "No" %>
+                        </p>
+
+                        <a href="cars?id=<%= c.getId() %>"
+                           class="btn btn-outline-light btn-sm">
                             Details
-                        </button>
+                        </a>
 
                     </div>
 
@@ -115,8 +122,8 @@
             } else {
             %>
 
-            <div class="text-center">
-                <p>No cars available</p>
+            <div class="text-center text-muted">
+                No cars available
             </div>
 
             <%
