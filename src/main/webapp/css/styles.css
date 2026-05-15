@@ -1,102 +1,137 @@
+
+/* =========================
+   BASE
+========================= */
+
 body {
-
     background-color: #181818;
-
-    color: white;
+    color: #f1f1f1;
 }
-
 
 /* =========================
    HERO
 ========================= */
 
 .hero {
-
     padding: 100px 20px;
-
     background-color: #202020;
 }
 
-
 /* =========================
-   CARS SECTION
+   SECCIONES
 ========================= */
 
 .cars-section {
-
     padding: 60px 0;
 }
-
 
 /* =========================
    CARDS
 ========================= */
 
 .card {
-
     transition: 0.3s;
+    background-color: #1f1f1f;
+    border: 1px solid #333;
 }
 
-
-/* Hover cards */
-
 .card:hover {
-
     transform: translateY(-5px);
 }
 
-
 /* Imágenes */
-
 .card img {
-
     height: 220px;
-
     object-fit: cover;
 }
-
 
 /* =========================
    BOTONES
 ========================= */
 
 .btn {
-
     transition: 0.3s;
 }
 
-
-/* Hover botones */
-
 .btn:hover {
-
     transform: scale(1.05);
 }
-
 
 /* =========================
    NAVBAR LINKS
 ========================= */
 
 .nav-link {
-
     transition: 0.3s;
 }
 
-
-/* Hover navbar */
-
 .nav-link:hover {
-
     color: lightgray !important;
 }
-
 
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-
     margin-top: 50px;
+}
+
+/* =========================
+   FORMS (FIX DEFINITIVO)
+========================= */
+
+/* Inputs */
+input,
+textarea {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+/* Select */
+select {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+/* Options del select */
+select option {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+/* Focus inputs */
+input:focus,
+select:focus,
+textarea:focus {
+    color: #000 !important;
+    background-color: #fff !important;
+    border-color: #666 !important;
+    box-shadow: none !important;
+}
+
+/* Labels */
+.form-label {
+    color: #fff !important;
+}
+
+/* Checkbox label */
+.form-check-label {
+    color: #fff !important;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: #777 !important;
+}
+
+.form-control,
+.form-select {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.form-label {
+    color: #f1f1f1 !important;
 }

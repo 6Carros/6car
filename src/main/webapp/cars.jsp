@@ -10,106 +10,79 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cars - 6Car</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
-<body>
+<body class="bg-dark text-white">
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
+<nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
     <div class="container">
-
         <a class="navbar-brand" href="index.jsp">6Car</a>
 
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="cars">Cars</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="brands">Brands</a>
-                </li>
-
-            </ul>
-
+        <div>
+            <a class="nav-link d-inline text-white" href="cars">Cars</a>
+            <a class="nav-link d-inline text-white" href="brands">Brands</a>
         </div>
-
     </div>
-
 </nav>
 
-<!-- ================= CARS ================= -->
-<section class="cars-section">
+<section class="py-5">
 
     <div class="container">
 
-        <h1 class="text-center mb-5">Available Cars</h1>
+        <div class="d-flex justify-content-between mb-4">
+            <h1>Available Cars</h1>
+
+            <a href="cars-crud?action=new" class="btn btn-outline-light">
+                + Add New Car
+            </a>
+        </div>
 
         <div class="row g-4">
 
             <%
-                if (cars != null && !cars.isEmpty()) {
+                if (cars != null) {
                     for (Car c : cars) {
             %>
 
             <div class="col-md-4">
 
-                <div class="card bg-dark text-white h-100 border-light">
+                <div class="card bg-dark text-white border border-secondary h-100">
 
-                    <img src="<%= c.getImageUrl() %>"
-                         class="card-img-top"
-                         alt="<%= c.getModel() %>">
+                    <img src="<%= c.getImageUrl() %>" class="card-img-top" style="height:220px; object-fit:cover;">
 
                     <div class="card-body text-center">
 
-                        <h5 class="card-title">
-                            <%= c.getModel() %>
-                        </h5>
+                        <h5><%= c.getModel() %></h5>
 
-                        <p class="card-text">
-                            Brand: <%= c.getBrandName() %>
-                        </p>
+                        <p>Brand: <%= c.getBrandName() %></p>
+                        <p>Year: <%= c.getYear() %></p>
+                        <p><%= c.getPricePerDay() %> €/day</p>
 
-                        <p class="card-text">
-                            Year: <%= c.getYear() %>
-                        </p>
+                        <div class="mt-3">
 
-                        <p class="fw-bold">
-                            <%= c.getPricePerDay() %> €/day
-                        </p>
+                            <!-- DETAIL FIXADO -->
+                            <a href="cars-crud?action=detail&id=<%= c.getId() %>"
+                               class="btn btn-outline-light btn-sm">
+                                Details
+                            </a>
 
-                        <p class="card-text">
-                            Available:
-                            <%= c.isAvailable() ? "Yes" : "No" %>
-                        </p>
+                            <a href="cars-crud?action=edit&id=<%= c.getId() %>"
+                               class="btn btn-outline-light btn-sm">
+                                Edit
+                            </a>
 
-                        <a href="cars?id=<%= c.getId() %>"
-                           class="btn btn-outline-light btn-sm">
-                            Details
-                        </a>
+                            <a href="cars-crud?action=delete&id=<%= c.getId() %>"
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+
+                        </div>
 
                     </div>
 
@@ -118,15 +91,7 @@
             </div>
 
             <%
-                }
-            } else {
-            %>
-
-            <div class="text-center text-muted">
-                No cars available
-            </div>
-
-            <%
+                    }
                 }
             %>
 
@@ -135,13 +100,6 @@
     </div>
 
 </section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-dark text-center text-white p-4 mt-5">
-
-    <p class="mb-0">2026 - 6Car Project</p>
-
-</footer>
 
 </body>
 </html>

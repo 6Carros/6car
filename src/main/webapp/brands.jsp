@@ -10,92 +10,77 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Brands - 6Car</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
 <body class="bg-dark text-white">
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
+<nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
     <div class="container">
 
         <a class="navbar-brand" href="index.jsp">6Car</a>
 
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="cars">Cars</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="brands">Brands</a>
-                </li>
-
-            </ul>
-
+        <div>
+            <a class="nav-link d-inline text-white" href="cars">Cars</a>
+            <a class="nav-link d-inline text-white" href="brands">Brands</a>
         </div>
 
     </div>
-
 </nav>
 
-<!-- ================= BRANDS ================= -->
-<section class="cars-section">
+<section class="py-5">
 
     <div class="container">
 
-        <h1 class="text-center mb-5">Brands</h1>
+        <div class="d-flex justify-content-between mb-4">
+            <h1>Brands</h1>
+
+            <a href="brands-crud?action=new" class="btn btn-outline-light">
+                + Add New Brand
+            </a>
+        </div>
 
         <div class="row g-4">
 
             <%
-                if (brands != null && !brands.isEmpty()) {
+                if (brands != null) {
                     for (Brand b : brands) {
             %>
 
             <div class="col-md-4">
 
-                <div class="card bg-dark text-white h-100 border-light">
+                <div class="card bg-dark text-white border border-secondary text-center p-3 h-100">
 
-                    <div class="card-body text-center">
+                    <img src="<%= b.getLogoUrl() %>"
+                         style="height:80px; object-fit:contain;"
+                         class="mx-auto mb-3">
 
-                        <h5 class="card-title">
-                            <%= b.getName() %>
-                        </h5>
+                    <h5><%= b.getName() %></h5>
 
-                        <p class="card-text">
-                            <%= b.getCountry() %>
-                        </p>
+                    <p><%= b.getCountry() %></p>
+                    <p>Founded: <%= b.getFoundedYear() %></p>
 
-                        <p class="card-text">
-                            Founded: <%= b.getFoundedYear() %>
-                        </p>
+                    <div class="mt-3">
 
-                        <a href="brands?id=<%= b.getId() %>"
-                           class="btn btn-outline-light btn-sm mt-2">
+                        <!-- DETAIL FIXADO -->
+                        <a href="brands-crud?action=detail&id=<%= b.getId() %>"
+                           class="btn btn-outline-light btn-sm">
                             Details
+                        </a>
+
+                        <a href="brands-crud?action=edit&id=<%= b.getId() %>"
+                           class="btn btn-outline-light btn-sm">
+                            Edit
+                        </a>
+
+                        <a href="brands-crud?action=delete&id=<%= b.getId() %>"
+                           class="btn btn-danger btn-sm">
+                            Delete
                         </a>
 
                     </div>
@@ -105,15 +90,7 @@
             </div>
 
             <%
-                }
-            } else {
-            %>
-
-            <div class="text-center text-muted">
-                No brands available
-            </div>
-
-            <%
+                    }
                 }
             %>
 
@@ -122,13 +99,6 @@
     </div>
 
 </section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-dark text-center text-white p-4 mt-5">
-
-    <p class="mb-0">2026 - 6Car Project</p>
-
-</footer>
 
 </body>
 </html>
