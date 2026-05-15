@@ -1,9 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.sixcar.model.Brand" %>
 
 <%
-    List<Brand> brands = (List<Brand>) request.getAttribute("brands");
+    Brand brand = (Brand) request.getAttribute("brand");
 %>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Brands - 6Car</title>
+    <title><%= brand.getName() %> - 6Car</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -68,64 +67,41 @@
 
 </nav>
 
-<!-- ================= BRANDS ================= -->
-<section class="cars-section">
+<!-- ================= DETAIL ================= -->
+<section class="cars-section py-5">
 
     <div class="container">
 
-        <h1 class="text-center mb-5">
-            Brands
-        </h1>
+        <!-- BACK -->
+        <a href="brands" class="btn btn-light mb-4">
+            ← Back to brands
+        </a>
 
-        <div class="row g-4">
+        <div class="row justify-content-center">
 
-            <%
-                if (brands != null && !brands.isEmpty()) {
-                    for (Brand b : brands) {
-            %>
+            <div class="col-md-7">
 
-            <div class="col-md-4">
-
-                <div class="card bg-dark text-white h-100 border-light">
+                <div class="card bg-dark text-white border-light">
 
                     <div class="card-body text-center">
 
-                        <h5 class="card-title">
-                            <%= b.getName() %>
-                        </h5>
+                        <h2 class="card-title mb-4">
+                            <%= brand.getName() %>
+                        </h2>
 
                         <p class="card-text">
-                            <%= b.getCountry() %>
+                            <strong>Country:</strong> <%= brand.getCountry() %>
                         </p>
 
                         <p class="card-text">
-                            Founded: <%= b.getFoundedYear() %>
+                            <strong>Founded:</strong> <%= brand.getFoundedYear() %>
                         </p>
-
-                        <!-- OPTIONAL: botón detalle -->
-                        <a href="brands?id=<%= b.getId() %>"
-                           class="btn btn-outline-light btn-sm mt-2">
-                            Details
-                        </a>
 
                     </div>
 
                 </div>
 
             </div>
-
-            <%
-                    }
-                } else {
-            %>
-
-            <div class="col-12 text-center text-muted">
-                No brands available
-            </div>
-
-            <%
-                }
-            %>
 
         </div>
 
