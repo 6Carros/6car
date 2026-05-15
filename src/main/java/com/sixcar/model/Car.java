@@ -4,6 +4,7 @@ public class Car {
 
     private int id;
     private int brandId;
+    private String brandName; // ✔ NUEVO (JOIN)
     private String model;
     private int year;
     private String color;
@@ -13,10 +14,11 @@ public class Car {
 
     public Car() {}
 
-    public Car(int id, int brandId, String model, int year, String color,
+    public Car(int id, int brandId, String brandName, String model, int year, String color,
                double pricePerDay, boolean available, String imageUrl) {
         this.id = id;
         this.brandId = brandId;
+        this.brandName = brandName;
         this.model = model;
         this.year = year;
         this.color = color;
@@ -30,6 +32,10 @@ public class Car {
 
     public int getBrandId() { return brandId; }
     public void setBrandId(int brandId) { this.brandId = brandId; }
+
+    // ✔ NUEVO
+    public String getBrandName() { return brandName; }
+    public void setBrandName(String brandName) { this.brandName = brandName; }
 
     public String getModel() { return model; }
     public void setModel(String model) { this.model = model; }

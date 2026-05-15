@@ -42,11 +42,11 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="cars.jsp">Cars</a>
+                    <a class="nav-link active" href="cars">Cars</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="brands.jsp">Brands</a>
+                    <a class="nav-link" href="brands">Brands</a>
                 </li>
 
             </ul>
@@ -86,16 +86,18 @@
                             <%= c.getModel() %>
                         </h5>
 
+                        <!-- ✔ FIX 1 -->
                         <p class="card-text">
-                            Brand: <%= c.getBrand() %>
+                            Brand: <%= c.getBrandName() %>
                         </p>
 
                         <p class="card-text">
                             <%= c.getYear() %>
                         </p>
 
+                        <!-- ✔ FIX 2 -->
                         <p class="fw-bold">
-                            <%= c.getPrice() %> €/day
+                            <%= c.getPricePerDay() %> €/day
                         </p>
 
                         <button class="btn btn-outline-light btn-sm">
@@ -109,8 +111,8 @@
             </div>
 
             <%
-                    }
-                } else {
+                }
+            } else {
             %>
 
             <div class="text-center">
