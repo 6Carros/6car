@@ -11,9 +11,7 @@ public class Brand {
     public Brand() {
     }
 
-    public Brand(int id, String name, String country,
-                 int foundedYear, String logoUrl) {
-
+    public Brand(int id, String name, String country, int foundedYear, String logoUrl) {
         this.id = id;
         this.name = name;
         this.country = country;
