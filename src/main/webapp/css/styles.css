@@ -1,0 +1,102 @@
+body {
+
+    background-color: #181818;
+
+    color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    padding: 100px 20px;
+
+    background-color: #202020;
+}
+
+
+/* =========================
+   CARS SECTION
+========================= */
+
+.cars-section {
+
+    padding: 60px 0;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+
+    transition: 0.3s;
+}
+
+
+/* Hover cards */
+
+.card:hover {
+
+    transform: translateY(-5px);
+}
+
+
+/* Imágenes */
+
+.card img {
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn {
+
+    transition: 0.3s;
+}
+
+
+/* Hover botones */
+
+.btn:hover {
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   NAVBAR LINKS
+========================= */
+
+.nav-link {
+
+    transition: 0.3s;
+}
+
+
+/* Hover navbar */
+
+.nav-link:hover {
+
+    color: lightgray !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    margin-top: 50px;
+}
