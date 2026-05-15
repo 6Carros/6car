@@ -1,4 +1,4 @@
-package com.sixcar.controller;
+package com.sixcar.servlet;
 
 import com.sixcar.model.Car;
 import com.sixcar.repository.CarRepository;
@@ -10,12 +10,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/cars")
 public class CarServlet extends HttpServlet {
 
-    private final CarRepository carRepository = new CarRepository();
+    private final CarRepository repository = new CarRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -25,14 +24,12 @@ public class CarServlet extends HttpServlet {
 
         try {
 
-            // =========================
-            // DETALLE DE COCHE
-            // =========================
+            // DETAIL
             if (idParam != null) {
 
                 int id = Integer.parseInt(idParam);
 
-                Car car = carRepository.findById(id);
+                Car car = repository.findById(id);
 
                 req.setAttribute("car", car);
 
@@ -42,22 +39,15 @@ public class CarServlet extends HttpServlet {
                 return;
             }
 
-            // =========================
-            // LISTADO DE COCHES
-            // =========================
-            List<Car> cars = carRepository.findAll();
-
-            req.setAttribute("cars", cars);
+            // LIST
+            req.setAttribute("cars", repository.findAll());
 
             req.getRequestDispatcher("/cars.jsp")
                     .forward(req, resp);
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
-            resp.setContentType("text/plain");
-            resp.getWriter().println("Error processing cars");
+            resp.sendError(500, "Error processing cars");
         }
     }
 }
