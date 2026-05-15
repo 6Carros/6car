@@ -6,7 +6,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>6Car</title>
@@ -21,7 +20,7 @@
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="container">
@@ -29,9 +28,7 @@
         <a class="navbar-brand" href="index.jsp">6Car</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,7 +55,7 @@
 
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero text-center">
 
     <div class="container">
@@ -67,15 +64,13 @@
 
         <p class="lead">Buy and rent cars easily</p>
 
-        <a href="cars.jsp" class="btn btn-light">
-            Explore Cars
-        </a>
+        <a href="cars.jsp" class="btn btn-light">Explore Cars</a>
 
     </div>
 
 </section>
 
-<!-- FEATURED CARS -->
+<!-- ================= FEATURED CARS ================= -->
 <section class="cars-section">
 
     <div class="container">
@@ -84,7 +79,7 @@
 
         <div class="row g-4">
 
-            <!-- BMW -->
+            <!-- CAR 1 -->
             <div class="col-md-4">
 
                 <div class="card bg-dark text-white h-100">
@@ -92,18 +87,15 @@
                     <img src="images/bmw.jpg" class="card-img-top" alt="BMW">
 
                     <div class="card-body">
-
                         <h5 class="card-title">BMW M4</h5>
-
-                        <p class="card-text">Automatic • Sport car</p>
-
+                        <p class="card-text">Automatic • Sport</p>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- CHEVROLET -->
+            <!-- CAR 2 -->
             <div class="col-md-4">
 
                 <div class="card bg-dark text-white h-100">
@@ -111,18 +103,15 @@
                     <img src="images/chevrolet.jpg" class="card-img-top" alt="Chevrolet">
 
                     <div class="card-body">
-
                         <h5 class="card-title">Chevrolet Camaro</h5>
-
-                        <p class="card-text">Automatic • Muscle car</p>
-
+                        <p class="card-text">Automatic • Muscle</p>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- PORSCHE -->
+            <!-- CAR 3 -->
             <div class="col-md-4">
 
                 <div class="card bg-dark text-white h-100">
@@ -130,11 +119,8 @@
                     <img src="images/porsche.jpg" class="card-img-top" alt="Porsche">
 
                     <div class="card-body">
-
                         <h5 class="card-title">Porsche 911</h5>
-
-                        <p class="card-text">Automatic • Luxury sport</p>
-
+                        <p class="card-text">Automatic • Luxury</p>
                     </div>
 
                 </div>
@@ -147,7 +133,7 @@
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="bg-dark text-center text-white p-4 mt-5">
 
     <p class="mb-0">2026 - 6Car Project</p>
