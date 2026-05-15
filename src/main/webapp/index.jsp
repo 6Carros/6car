@@ -34,11 +34,11 @@
         <!-- BOTONES -->
         <div class="d-flex justify-content-center gap-3">
 
-            <a href="cars.jsp" class="btn btn-light btn-lg">
+            <a href="cars" class="btn btn-light btn-lg">
                 Explore Cars
             </a>
 
-            <a href="brands.jsp" class="btn btn-outline-light btn-lg">
+            <a href="brands" class="btn btn-outline-light btn-lg">
                 Explore Brands
             </a>
 
