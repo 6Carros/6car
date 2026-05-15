@@ -24,7 +24,9 @@ public class BrandServlet extends HttpServlet {
 
         try {
 
+            // =========================
             // DETAIL
+            // =========================
             if (idParam != null) {
 
                 int id = Integer.parseInt(idParam);
@@ -39,7 +41,9 @@ public class BrandServlet extends HttpServlet {
                 return;
             }
 
+            // =========================
             // LIST
+            // =========================
             req.setAttribute("brands", repository.findAll());
 
             req.getRequestDispatcher("/brands.jsp")

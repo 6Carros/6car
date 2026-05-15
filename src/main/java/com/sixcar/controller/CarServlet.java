@@ -2,6 +2,7 @@ package com.sixcar.servlet;
 
 import com.sixcar.model.Car;
 import com.sixcar.repository.CarRepository;
+import com.sixcar.repository.BrandRepository;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,6 +16,7 @@ import java.io.IOException;
 public class CarServlet extends HttpServlet {
 
     private final CarRepository repository = new CarRepository();
+    private final BrandRepository brandRepository = new BrandRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -24,7 +26,9 @@ public class CarServlet extends HttpServlet {
 
         try {
 
+            // =========================
             // DETAIL
+            // =========================
             if (idParam != null) {
 
                 int id = Integer.parseInt(idParam);
@@ -39,7 +43,9 @@ public class CarServlet extends HttpServlet {
                 return;
             }
 
+            // =========================
             // LIST
+            // =========================
             req.setAttribute("cars", repository.findAll());
 
             req.getRequestDispatcher("/cars.jsp")
