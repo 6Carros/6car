@@ -79,7 +79,8 @@
                         </a>
 
                         <a href="brands-crud?action=delete&id=<%= b.getId() %>"
-                           class="btn btn-danger btn-sm">
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to delete this brand?');">
                             Delete
                         </a>
 
