@@ -1,8 +1,8 @@
 package com.sixcar.servlet;
 
-import com.sixcar.model.Car;
 import com.sixcar.repository.CarRepository;
 import com.sixcar.repository.BrandRepository;
+import com.sixcar.model.Car;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class CarCrudServlet extends HttpServlet {
     private final BrandRepository brandRepo = new BrandRepository();
 
     // =========================
-    // GET (LIST / DETAIL / NEW / EDIT / DELETE)
+    // GET
     // =========================
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,10 +29,18 @@ public class CarCrudServlet extends HttpServlet {
 
         try {
 
-            // ================= LIST =================
+            // ================= LIST + SEARCH =================
             if (action == null || action.equals("list")) {
 
-                req.setAttribute("cars", carRepo.findAll());
+                // 🆕 SEARCH BY BRAND
+                String brand = req.getParameter("brand");
+
+                if (brand != null && !brand.isEmpty()) {
+                    req.setAttribute("cars", carRepo.findByBrand(brand));
+                } else {
+                    req.setAttribute("cars", carRepo.findAll());
+                }
+
                 req.getRequestDispatcher("/cars.jsp").forward(req, resp);
                 return;
             }
@@ -41,9 +49,7 @@ public class CarCrudServlet extends HttpServlet {
             if ("detail".equals(action)) {
 
                 int id = Integer.parseInt(req.getParameter("id"));
-
                 req.setAttribute("car", carRepo.findById(id));
-
                 req.getRequestDispatcher("/car-detail.jsp").forward(req, resp);
                 return;
             }
@@ -52,7 +58,6 @@ public class CarCrudServlet extends HttpServlet {
             if ("new".equals(action)) {
 
                 req.setAttribute("brands", brandRepo.findAll());
-
                 req.getRequestDispatcher("/car-form.jsp").forward(req, resp);
                 return;
             }
@@ -80,17 +85,14 @@ public class CarCrudServlet extends HttpServlet {
                 return;
             }
 
-            // fallback
-            resp.sendRedirect("cars-crud?action=list");
-
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendError(500, "Error processing cars (GET)");
+            resp.sendError(500, "Cars GET error");
         }
     }
 
     // =========================
-    // POST (CREATE / UPDATE)
+    // POST (CREATE + UPDATE)
     // =========================
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -139,12 +141,9 @@ public class CarCrudServlet extends HttpServlet {
                 return;
             }
 
-            // fallback
-            resp.sendRedirect("cars-crud?action=list");
-
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendError(500, "Error processing cars (POST)");
+            resp.sendError(500, "Cars POST error");
         }
     }
 }

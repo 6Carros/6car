@@ -11,7 +11,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars - 6Car</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,87 +19,98 @@
 
 <body class="bg-dark text-white">
 
-<nav class="navbar navbar-dark bg-dark border-bottom border-secondary">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
     <div class="container">
+
         <a class="navbar-brand" href="index.jsp">6Car</a>
 
-        <div>
-            <a class="nav-link d-inline text-white" href="cars">Cars</a>
-            <a class="nav-link d-inline text-white" href="brands">Brands</a>
+        <div class="collapse navbar-collapse">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="cars-crud?action=list">Cars</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="brands-crud?action=list">Brands</a>
+                </li>
+
+            </ul>
+
         </div>
+
     </div>
+
 </nav>
 
-<section class="py-5">
+<!-- 🔥 SEARCH BY BRAND -->
+<div class="container mt-4">
 
-    <div class="container">
+    <form method="get" action="cars-crud" class="row justify-content-center">
 
-        <div class="d-flex justify-content-between mb-4">
-            <h1>Available Cars</h1>
+        <input type="hidden" name="action" value="list">
 
-            <a href="cars-crud?action=new" class="btn btn-outline-light">
-                + Add New Car
-            </a>
+        <div class="col-md-6">
+            <input type="text"
+                   name="brand"
+                   class="form-control"
+                   placeholder="Search by brand (BMW, Audi, Mercedes...)">
         </div>
 
-        <div class="row g-4">
+        <div class="col-md-2">
+            <button class="btn btn-outline-light w-100">
+                Search
+            </button>
+        </div>
 
-            <%
-                if (cars != null) {
-                    for (Car c : cars) {
-            %>
+    </form>
 
-            <div class="col-md-4">
+</div>
 
-                <div class="card bg-dark text-white border border-secondary h-100">
+<!-- CARS -->
+<div class="container mt-5">
 
-                    <img src="<%= c.getImageUrl() %>" class="card-img-top" style="height:220px; object-fit:cover;">
+    <div class="row g-4">
 
-                    <div class="card-body text-center">
+        <%
+            if (cars != null) {
+                for (Car c : cars) {
+        %>
 
-                        <h5><%= c.getModel() %></h5>
+        <div class="col-md-4">
 
-                        <p>Brand: <%= c.getBrandName() %></p>
-                        <p>Year: <%= c.getYear() %></p>
-                        <p><%= c.getPricePerDay() %> €/day</p>
+            <div class="card bg-dark text-white border-light">
 
-                        <div class="mt-3">
+                <img src="<%= c.getImageUrl() %>" class="card-img-top">
 
-                            <!-- DETAIL FIXADO -->
-                            <a href="cars-crud?action=detail&id=<%= c.getId() %>"
-                               class="btn btn-outline-light btn-sm">
-                                Details
-                            </a>
+                <div class="card-body text-center">
 
-                            <a href="cars-crud?action=edit&id=<%= c.getId() %>"
-                               class="btn btn-outline-light btn-sm">
-                                Edit
-                            </a>
+                    <h5><%= c.getModel() %></h5>
 
-                            <a href="cars-crud?action=delete&id=<%= c.getId() %>"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Are you sure you want to delete this car?');">
-                                Delete
-                            </a>
+                    <!-- 🆕 BRAND NAME (JOIN) -->
+                    <p><strong>Brand:</strong> <%= c.getBrandName() %></p>
 
-                        </div>
+                    <p><%= c.getYear() %></p>
 
-                    </div>
+                    <p class="fw-bold"><%= c.getPricePerDay() %> €/day</p>
 
                 </div>
 
             </div>
 
-            <%
-                    }
-                }
-            %>
-
         </div>
+
+        <%
+                }
+            }
+        %>
 
     </div>
 
-</section>
+</div>
 
 </body>
 </html>

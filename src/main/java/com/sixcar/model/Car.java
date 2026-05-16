@@ -3,8 +3,13 @@ package com.sixcar.model;
 public class Car {
 
     private int id;
+
+    // 🔴 EXISTENTE: relación con Brand (FK)
     private int brandId;
-    private String brandName; // ✔ NUEVO (JOIN)
+
+    // 🆕 NUEVO: nombre de la marca (viene del JOIN)
+    private String brandName;
+
     private String model;
     private int year;
     private String color;
@@ -14,8 +19,10 @@ public class Car {
 
     public Car() {}
 
-    public Car(int id, int brandId, String brandName, String model, int year, String color,
-               double pricePerDay, boolean available, String imageUrl) {
+    public Car(int id, int brandId, String brandName, String model,
+               int year, String color, double pricePerDay,
+               boolean available, String imageUrl) {
+
         this.id = id;
         this.brandId = brandId;
         this.brandName = brandName;
@@ -27,31 +34,76 @@ public class Car {
         this.imageUrl = imageUrl;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public int getBrandId() { return brandId; }
-    public void setBrandId(int brandId) { this.brandId = brandId; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    // ✔ NUEVO
-    public String getBrandName() { return brandName; }
-    public void setBrandName(String brandName) { this.brandName = brandName; }
+    public int getBrandId() {
+        return brandId;
+    }
 
-    public String getModel() { return model; }
-    public void setModel(String model) { this.model = model; }
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
 
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
+    // 🆕 NUEVO GETTER/SETTER (CLAVE PARA EL JOIN)
+    public String getBrandName() {
+        return brandName;
+    }
 
-    public String getColor() { return color; }
-    public void setColor(String color) { this.color = color; }
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
 
-    public double getPricePerDay() { return pricePerDay; }
-    public void setPricePerDay(double pricePerDay) { this.pricePerDay = pricePerDay; }
+    public String getModel() {
+        return model;
+    }
 
-    public boolean isAvailable() { return available; }
-    public void setAvailable(boolean available) { this.available = available; }
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public void setPricePerDay(double pricePerDay) {
+        this.pricePerDay = pricePerDay;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }
