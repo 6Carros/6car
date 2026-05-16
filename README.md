@@ -5,8 +5,11 @@ El proyecto está enfocado en el aprendizaje del desarrollo web con Java, aplica
 
 ### Descripción general
 La aplicación gestiona dos entidades principales:
+
     •  Coches 
+    
     •  Marcas 
+    
 Cada coche está asociado a una marca mediante una relación en base de datos. Esta relación se resuelve mediante consultas SQL con JOIN, lo que permite mostrar el nombre de la marca en lugar del identificador numérico (brand_id) en la interfaz.
 
 ### Tecnologías utilizadas
@@ -22,48 +25,79 @@ Cada coche está asociado a una marca mediante una relación en base de datos. E
 
 ### Arquitectura del proyecto
 El proyecto sigue el patrón MVC (Modelo-Vista-Controlador):
+
     • Modelo: clases Java que representan las entidades (Car, Brand) 
+    
     • Vista: páginas JSP encargadas de la interfaz de usuario 
+    
     • Controlador: servlets que gestionan la lógica de la aplicación 
+    
     • Acceso a datos: repositorios que realizan consultas SQL mediante JDBC 
+    
 Esta separación permite una estructura organizada, escalable y fácil de mantener.
 
 ### Funcionalidades
 - Gestión de coches
-    • Listado de coches disponibles 
-    • Visualización del detalle de cada coche 
-    • Creación de nuevos coches 
-    • Edición de coches existentes 
-    • Eliminación de coches 
+  
+    • Listado de coches disponibles
+  
+    • Visualización del detalle de cada coche
+  
+    • Creación de nuevos coches
+  
+    • Edición de coches existentes
+  
+    • Eliminación de coches
+  
     • Asociación con marcas mediante JOIN (se muestra el nombre de la marca en lugar del ID) 
 
 - Gestión de marcas
-    • Listado de marcas 
-    • Visualización del detalle de cada marca 
-    • Creación de nuevas marcas 
-    • Edición de marcas existentes 
-    • Eliminación de marcas 
+  
+    • Listado de marcas
+  
+    • Visualización del detalle de cada marca
+  
+    • Creación de nuevas marcas
+  
+    • Edición de marcas existentes
+  
+    • Eliminación de marcas
+
 
 ### Base de datos
 El sistema utiliza dos tablas principales:
+
     • cars 
+    
     • brands 
+    
 - Relación:
-    • La columna brand_id en la tabla cars hace referencia al id de la tabla brands 
+  
+    • La columna brand_id en la tabla cars hace referencia al id de la tabla brands
+  
 Esto permite establecer una relación 1:N (una marca puede tener muchos coches).
 
 ### Interfaz de usuario
 La interfaz está desarrollada con Bootstrap 5, utilizando un diseño oscuro para mantener coherencia visual en toda la aplicación.
+
 Incluye:
+
     • Tarjetas para mostrar coches y marcas 
+
     • Navegación entre secciones 
+    
     • Botones para editar y eliminar registros 
+    
     • Confirmación antes de eliminar elementos 
+    
     • Diseño responsive adaptado a distintos tamaños de pantalla 
 
 ### Cómo ejecutar el proyecto
+
 Para ejecutar la aplicación correctamente:
+
     1. Clonar el repositorio: 
+    
 git clone https://github.com/6Carros/6car.git
 
     2. Importar el proyecto en un IDE (IntelliJ IDEA o Eclipse) como proyecto Maven 
@@ -73,7 +107,9 @@ git clone https://github.com/6Carros/6car.git
         ◦ Apache Tomcat 10 o superior 
         
     4. Configurar la conexión a la base de datos en la clase:
+    
        DatabaseConnection
+       
        Ajustando:
         ◦ URL de la base de datos 
         ◦ Usuario 
