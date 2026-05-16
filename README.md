@@ -37,7 +37,8 @@ El proyecto sigue el patrón MVC (Modelo-Vista-Controlador):
 Esta separación permite una estructura organizada, escalable y fácil de mantener.
 
 ### Funcionalidades
-- Gestión de coches
+
+Gestión de coches
   
     • Listado de coches disponibles
   
@@ -51,7 +52,7 @@ Esta separación permite una estructura organizada, escalable y fácil de manten
   
     • Asociación con marcas mediante JOIN (se muestra el nombre de la marca en lugar del ID) 
 
-- Gestión de marcas
+Gestión de marcas
   
     • Listado de marcas
   
@@ -71,7 +72,7 @@ El sistema utiliza dos tablas principales:
     
     • brands 
     
-- Relación:
+Relación:
   
     • La columna brand_id en la tabla cars hace referencia al id de la tabla brands
   
@@ -96,9 +97,7 @@ Incluye:
 
 Para ejecutar la aplicación correctamente:
 
-    1. Clonar el repositorio: 
-    
-git clone https://github.com/6Carros/6car.git
+    1. Clonar el repositorio:  git clone https://github.com/6Carros/6car.git
 
     2. Importar el proyecto en un IDE (IntelliJ IDEA o Eclipse) como proyecto Maven 
     
@@ -121,4 +120,4 @@ git clone https://github.com/6Carros/6car.git
 
 ### Acceso a la aplicación
 Una vez desplegado en Tomcat:
-http://localhost:8080/6car/cars-crud?action=list
+http://localhost:8080/6car_war_exploded/index.jsp
