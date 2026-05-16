@@ -28,7 +28,6 @@
             <%= (brand != null) ? "Edit Brand" : "Create New Brand" %>
         </h2>
 
-        <!-- 🔥 FIX IMPORTANTE -->
         <form action="brands-crud?action=<%= (brand != null) ? "update" : "create" %>" method="post">
 
             <% if (brand != null) { %>
@@ -60,6 +59,13 @@
                     <input type="text" name="logoUrl" class="form-control"
                            value="<%= (brand != null) ? brand.getLogoUrl() : "" %>">
                 </div>
+
+                <div class="col-md-6">
+                    <label class="form-label text-white">Description</label>
+                    <input type="text" name="description" class="form-control"
+                            value="<%= (brand != null) ? brand.getDescription() : "" %>">
+                </div>
+
 
             </div>
 

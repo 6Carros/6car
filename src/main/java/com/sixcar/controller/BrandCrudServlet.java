@@ -84,6 +84,7 @@ public class BrandCrudServlet extends HttpServlet {
                 b.setCountry(req.getParameter("country"));
                 b.setFoundedYear(Integer.parseInt(req.getParameter("foundedYear")));
                 b.setLogoUrl(req.getParameter("logoUrl"));
+                b.setDescription(req.getParameter("description"));
 
                 brandRepo.insert(b);
 
@@ -101,6 +102,7 @@ public class BrandCrudServlet extends HttpServlet {
                 b.setCountry(req.getParameter("country"));
                 b.setFoundedYear(Integer.parseInt(req.getParameter("foundedYear")));
                 b.setLogoUrl(req.getParameter("logoUrl"));
+                b.setDescription(req.getParameter("description"));
 
                 brandRepo.update(b);
 
