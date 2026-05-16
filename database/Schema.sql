@@ -52,3 +52,11 @@ CREATE TABLE rentals (
         REFERENCES cars(id)
         ON DELETE CASCADE
 );
+
+
+ALTER TABLE brands
+ADD description VARCHAR(255);
+
+select * from cars;
+
+select * from brands;

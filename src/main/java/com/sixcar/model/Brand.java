@@ -7,16 +7,18 @@ public class Brand {
     private String country;
     private int foundedYear;
     private String logoUrl;
+    private String description;
 
     public Brand() {
     }
 
-    public Brand(int id, String name, String country, int foundedYear, String logoUrl) {
+    public Brand(int id, String name, String country, int foundedYear, String logoUrl, String description) {
         this.id = id;
         this.name = name;
         this.country = country;
         this.foundedYear = foundedYear;
         this.logoUrl = logoUrl;
+        this.description = description;
     }
 
     public int getId() {
@@ -57,5 +59,13 @@ public class Brand {
 
     public void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

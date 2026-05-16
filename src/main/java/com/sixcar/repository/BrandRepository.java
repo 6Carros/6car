@@ -13,7 +13,7 @@ public class BrandRepository {
         List<Brand> brands = new ArrayList<>();
 
         String sql = """
-                SELECT id, name, country, founded_year, logo_url
+                SELECT id, name, country, founded_year, logo_url, description
                 FROM brands
                 """;
 
@@ -30,6 +30,7 @@ public class BrandRepository {
                 b.setCountry(rs.getString("country"));
                 b.setFoundedYear(rs.getInt("founded_year"));
                 b.setLogoUrl(rs.getString("logo_url"));
+                b.setDescription(rs.getString("description"));
 
                 brands.add(b);
             }
@@ -44,7 +45,7 @@ public class BrandRepository {
     public Brand findById(int id) {
 
         String sql = """
-                SELECT id, name, country, founded_year, logo_url
+                SELECT id, name, country, founded_year, logo_url, description
                 FROM brands WHERE id=?
                 """;
 
@@ -64,6 +65,7 @@ public class BrandRepository {
                     b.setCountry(rs.getString("country"));
                     b.setFoundedYear(rs.getInt("founded_year"));
                     b.setLogoUrl(rs.getString("logo_url"));
+                    b.setDescription(rs.getString("description"));
 
                     return b;
                 }
@@ -80,8 +82,8 @@ public class BrandRepository {
     public void insert(Brand b) {
 
         String sql = """
-                INSERT INTO brands (name, country, founded_year, logo_url)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO brands (name, country, founded_year, logo_url, description)
+                VALUES (?, ?, ?, ?, ?)
                 """;
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -91,6 +93,7 @@ public class BrandRepository {
             stmt.setString(2, b.getCountry());
             stmt.setInt(3, b.getFoundedYear());
             stmt.setString(4, b.getLogoUrl());
+            stmt.setString(5, b.getDescription());
 
             stmt.executeUpdate();
 
@@ -104,7 +107,7 @@ public class BrandRepository {
 
         String sql = """
                 UPDATE brands
-                SET name=?, country=?, founded_year=?, logo_url=?
+                SET name=?, country=?, founded_year=?, logo_url=?, description=?
                 WHERE id=?
                 """;
 
@@ -115,7 +118,8 @@ public class BrandRepository {
             stmt.setString(2, b.getCountry());
             stmt.setInt(3, b.getFoundedYear());
             stmt.setString(4, b.getLogoUrl());
-            stmt.setInt(5, b.getId());
+            stmt.setInt(6, b.getId());
+            stmt.setString(5, b.getDescription());
 
             stmt.executeUpdate();
 

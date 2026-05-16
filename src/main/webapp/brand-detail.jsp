@@ -97,6 +97,13 @@
                             <strong>Founded:</strong> <%= brand.getFoundedYear() %>
                         </p>
 
+                        <div class="mt-4">
+                            <h5 class="mb-2">Description</h5>
+
+                            <p class="text-white">
+                                <%= brand.getDescription() != null ? brand.getDescription() : "No description available" %>
+                            </p>
+                        </div>
                     </div>
 
                 </div>
