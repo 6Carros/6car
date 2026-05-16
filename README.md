@@ -65,17 +65,22 @@ Incluye:
 Para ejecutar la aplicación correctamente:
     1. Clonar el repositorio: 
 git clone https://github.com/6Carros/6car.git
+
     2. Importar el proyecto en un IDE (IntelliJ IDEA o Eclipse) como proyecto Maven 
+    
     3. Asegurarse de tener configurado: 
         ◦ Java 17 
         ◦ Apache Tomcat 10 o superior 
+        
     4. Configurar la conexión a la base de datos en la clase:
        DatabaseConnection
        Ajustando:
         ◦ URL de la base de datos 
         ◦ Usuario 
         ◦ Contraseña 
+        
     5. Ejecutar el script SQL para crear las tablas cars y brands (si es necesario) 
+    
     6. Desplegar el proyecto en Tomcat desde el IDE o generando un archivo .war 
 
 ### Acceso a la aplicación
